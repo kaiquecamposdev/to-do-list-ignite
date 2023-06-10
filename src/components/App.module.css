@@ -1,0 +1,118 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  height: 100vh
+}
+.wrapperMain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content {
+  margin: 0 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  flex: 1;
+  max-width: 46rem;
+}
+.form {
+  width: 100%;
+
+  margin-top: calc(0px - 1rem - 8px);
+  
+  display: flex;
+  gap: .5rem;
+
+  margin-bottom: 4rem;
+}
+.form button[type="submit"]:disabled {
+  opacity: .7;
+  cursor: not-allowed;
+}
+.form:focus-within button[type="submit"]:not(:disabled):hover {
+  background-color: var(--blue);
+}
+.inputText {
+  flex: 1;
+
+  font-size: 1rem;
+  color: var(--gray-300);
+  background-color: var(--gray-400);
+
+  border-radius: .5rem;
+  padding: 1rem;
+}
+.inputText:focus{
+  color: var(--gray-200);
+  box-shadow: 0px 0px 0px 1px var(--purple-dark);
+}
+.buttonAdd {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: .875rem;
+  font-weight: 700;
+  color: var(--gray-100);
+
+  padding: 1rem;
+  border-radius: .5rem;
+
+  gap: .5rem;
+
+  cursor: pointer;
+
+  background-color: var(--blue-dark);
+
+  transition: background-color .2s;
+}
+.tasksManager {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 1.5rem;
+
+  width: 100%;
+}
+.tasksManager p {
+  color: var(--gray-100);
+
+  display: flex;
+  gap: .5rem;
+}
+.tasksManager p:nth-of-type(1)  > strong {
+  color: var(--blue);
+}
+.tasksManager p:nth-of-type(2) > strong {
+  color: var(--purple);
+}
+.tasksManager p span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--gray-400);
+
+  font-size: .75rem;
+  font-weight: 700;
+
+  border-radius: 999px;
+  padding: .125rem 1rem;
+}
+.list {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+
+  max-height: 25.5rem;
+  width: 100%;
+
+  padding: .1rem .1rem 0 .1rem;
+}
+.list::-webkit-scrollbar {
+  display: none;
+}
