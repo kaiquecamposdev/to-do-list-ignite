@@ -15,16 +15,19 @@
 .checkbox > svg {
   fill: var(--blue);
 }
-.card > p {
+.card > p{
   transition: text-decoration .5s;
   transition: color .5s;
-}
-.card > p {
   flex: 1;
 }
-.card .checked{
+.card > p.checked{
+  cursor: not-allowed;
   text-decoration: line-through;
   color: var(--gray-300);
+}
+.cardLight {
+  background: var(--blue-to-purple);
+  box-shadow: 0px 0px 0px 0px;
 }
 .buttonRemove {
   cursor: pointer;
@@ -36,13 +39,11 @@
   border-radius: .5rem;
   padding: .3125rem;
   
-  color: var(--gray-300);
+  color: var(--danger);
 
   background-color: transparent;
-  transition: background-color .2s;
-  transition: color .2s;
+  transition: background-color .1s, color .1s, transform .1s;
 }
-.buttonRemove:hover{
-  background-color: var(--gray-400);
-  color: var(--danger);
+.buttonRemove:hover svg{
+  transform: scale(1.1);
 }

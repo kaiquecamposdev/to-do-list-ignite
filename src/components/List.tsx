@@ -2,20 +2,30 @@ import { Checkbox } from "@mui/material";
 import { blue, deepPurple } from "@mui/material/colors";
 import { Trash2 } from "lucide-react";
 import styles from "./List.module.css";
+import { ItemsProps } from "./App";
+import { ChangeEvent, useState } from "react";
 
-interface ListProps {
-  uuid: string;
-  item: string;
+interface ListProps extends ItemsProps {
+  isLight: boolean;
   onDeleteItem: (itemToDelete: string) => void;
+  onCheckItem: (uuid: string, itemToCheck: boolean) => void;
 }
 
-export function List({ uuid, item, onDeleteItem }: ListProps) {
+export function List({ uuid, item, completed, isLight, onDeleteItem, onCheckItem}: ListProps) {
+  const [isChecked, setIsChecked] = useState(false)
   function handleRemoveItem() {
     onDeleteItem(uuid);
   }
+  function handleCheckboxChange(event: ChangeEvent<HTMLInputElement>) {
+    setIsChecked(event.target.checked)
+    handleCheckedItem()
+  }
+  function handleCheckedItem() {
+    onCheckItem(uuid, !isChecked)
+  }
   return (
     <>
-      <div key={uuid} className={styles.card}>
+      <div key={uuid} className={isLight ? `${styles.card} ${styles.cardLight}` : styles.card}>
         <Checkbox
           sx={{
             color: blue[400],
@@ -23,14 +33,15 @@ export function List({ uuid, item, onDeleteItem }: ListProps) {
               color: deepPurple[400],
             },
           }}
+          checked={isChecked}
+          onChange={handleCheckboxChange}
           className={styles.checkbox}
         />
-        <p>{item}</p>
-        <button className={styles.buttonRemove} onClick={handleRemoveItem}>
+        <p className={completed ? styles.checked : ''}>{item}</p>
+        <button className={isLight ? `${styles.buttonRemove} ${styles.buttonRemoveLight}` : styles.buttonRemove} onClick={handleRemoveItem}>
           <Trash2 size={20} />
         </button>
       </div>
-      ;
     </>
   );
-}
+} 
