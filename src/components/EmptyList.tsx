@@ -1,5 +1,4 @@
 import { Clipboard } from "../assets/Clipboard-icon";
-import { ClipboardLight } from "../assets/ClipboardLight-icon";
 import styles from "./EmptyList.module.css";
 
 interface EmptyListProps {

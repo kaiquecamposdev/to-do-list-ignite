@@ -13,15 +13,15 @@
   background-color: var(--gray-500);
 }
 .card > p{
-  transition: text-decoration .5s;
-  transition: color .5s;
+  transition: text-decoration .2s, color .2s;
   font-weight: 600;
   flex: 1;
 }
 .card > p.checked{
+  user-select: none;
   cursor: not-allowed;
   text-decoration: line-through;
-  color: var(--gray-300);
+  color: var(--gray-200);
 }
 .cardLight {
   background: var(--blue-to-purple);
@@ -40,7 +40,7 @@
   color: var(--danger);
 
   background-color: transparent;
-  transition: background-color .1s, color .1s, transform .1s;
+  transition: background-color .2s, color .2s, transform .2s;
 }
 .buttonRemove:hover svg{
   transform: scale(1.1);

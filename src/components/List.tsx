@@ -10,21 +10,31 @@ interface ListProps extends ItemsProps {
   onCheckItem: (uuid: string, itemToCheck: boolean) => void;
 }
 
-export function List({ uuid, item, completed, isLight, onDeleteItem, onCheckItem}: ListProps) {
-  const [isChecked, setIsChecked] = useState(false)
+export function List({
+  uuid,
+  item,
+  completed,
+  isLight,
+  onDeleteItem,
+  onCheckItem,
+}: ListProps) {
+  const [isChecked, setIsChecked] = useState(false);
   function handleRemoveItem() {
     onDeleteItem(uuid);
   }
   function handleCheckboxChange(event: ChangeEvent<HTMLInputElement>) {
-    setIsChecked(event.target.checked)
-    handleCheckedItem()
+    setIsChecked(event.target.checked);
+    handleCheckedItem();
   }
   function handleCheckedItem() {
-    onCheckItem(uuid, !isChecked)
+    onCheckItem(uuid, !isChecked);
   }
   return (
     <>
-      <div key={uuid} className={isLight ? `${styles.card} ${styles.cardLight}` : styles.card}>
+      <div
+        key={uuid}
+        className={isLight ? `${styles.card} ${styles.cardLight}` : styles.card}
+      >
         <Checkbox
           sx={{
             color: "var(--blue)",
@@ -36,11 +46,20 @@ export function List({ uuid, item, completed, isLight, onDeleteItem, onCheckItem
           onChange={handleCheckboxChange}
           className={isLight ? `${styles.checkbox} light` : styles.checkbox}
         />
-        <p className={completed ? styles.checked : ''}>{item}</p>
-        <button className={isLight ? `${styles.buttonRemove} ${styles.buttonRemoveLight}` : styles.buttonRemove} onClick={handleRemoveItem}>
+        <p className={completed ? styles.checked : ""}>
+          {item.length >= 250 ? item.slice(0, 250).concat("...") : item}
+        </p>
+        <button
+          className={
+            isLight
+              ? `${styles.buttonRemove} ${styles.buttonRemoveLight}`
+              : styles.buttonRemove
+          }
+          onClick={handleRemoveItem}
+        >
           <Trash2 size={20} />
         </button>
       </div>
     </>
   );
-} 
+}
