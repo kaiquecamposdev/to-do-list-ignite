@@ -65,7 +65,11 @@ export function App() {
 
   return (
     <>
-      <div className={isLight ? `${styles.wrapper} ${styles.wrapperLight}` : styles.wrapper}>
+      <div
+        className={
+          isLight ? `${styles.wrapper} ${styles.wrapperLight}` : styles.wrapper
+        }
+      >
         <Header isLight={isLight} onSetColorScheme={handleChangeColorScheme} />
         <div className={styles.wrapperMain}>
           <main
@@ -97,7 +101,13 @@ export function App() {
                 Criar <Plus />
               </button>
             </form>
-            <section className={isLight ? `${styles.managerTasks} ${styles.managerTasksLight}` : styles.managerTasks}>
+            <section
+              className={
+                isLight
+                  ? `${styles.managerTasks} ${styles.managerTasksLight}`
+                  : styles.managerTasks
+              }
+            >
               <div className={styles.createdTasks}>
                 <p>
                   <strong>Tarefas criadas</strong>
@@ -109,7 +119,7 @@ export function App() {
                   <strong>Concluídas</strong>
                   <span>{`${countCheckTask} de ${items.length}`}</span>
                 </p>
-                {!isEmptyTasks ? (
+                {!isEmptyTasks && items.length >= 2 ? (
                   <div className={styles.containerRomoveAll}>
                     <button onClick={removeItems} className={styles.removeAll}>
                       <span>Apagar todos</span>
@@ -122,7 +132,7 @@ export function App() {
             </section>
             <section className={styles.list}>
               {isEmptyTasks ? (
-                <EmptyList isLight={isLight}/>
+                <EmptyList isLight={isLight} />
               ) : (
                 items.map(({ uuid, item, completed }) => {
                   return (
@@ -139,7 +149,7 @@ export function App() {
                 })
               )}
             </section>
-            {!isEmptyTasks ? (
+            {!isEmptyTasks && items.length >= 2 ? (
               <button onClick={removeItems} className={styles.removeAllMobile}>
                 <span>Apagar todos</span>
               </button>

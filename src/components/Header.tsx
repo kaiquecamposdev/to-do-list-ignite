@@ -18,6 +18,11 @@ export function Header({isLight, onSetColorScheme}: HeaderProps) {
           checked={isLight}
           onChange={handleChangeColorScheme}
           inputProps={{ "aria-label": "controlled" }}
+          sx={{
+            "&.Mui-checked": {
+              color: "var(--blue)",
+            },
+          }}
         />
       </div>
       <Logo />

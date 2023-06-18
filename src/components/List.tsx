@@ -1,5 +1,4 @@
 import { Checkbox } from "@mui/material";
-import { blue, deepPurple } from "@mui/material/colors";
 import { Trash2 } from "lucide-react";
 import styles from "./List.module.css";
 import { ItemsProps } from "./App";
@@ -28,14 +27,14 @@ export function List({ uuid, item, completed, isLight, onDeleteItem, onCheckItem
       <div key={uuid} className={isLight ? `${styles.card} ${styles.cardLight}` : styles.card}>
         <Checkbox
           sx={{
-            color: blue[400],
+            color: "var(--blue)",
             "&.Mui-checked": {
-              color: deepPurple[400],
+              color: "var(--blue)",
             },
           }}
           checked={isChecked}
           onChange={handleCheckboxChange}
-          className={styles.checkbox}
+          className={isLight ? `${styles.checkbox} light` : styles.checkbox}
         />
         <p className={completed ? styles.checked : ''}>{item}</p>
         <button className={isLight ? `${styles.buttonRemove} ${styles.buttonRemoveLight}` : styles.buttonRemove} onClick={handleRemoveItem}>

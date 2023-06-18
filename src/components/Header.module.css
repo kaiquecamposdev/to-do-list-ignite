@@ -29,7 +29,7 @@
   left: 15px;
   top: 15px;
 }
-.settingsButton:hover {
-  color: var(--blue);
-  background-color: var(--gray-400);
+.MuiSwitch-root .MuiSwitch-track, 
+.MuiSwitch-sizeMedium .MuiSwitch-track {
+  background-color: var(--gray-200);
 }

@@ -5,20 +5,22 @@
   align-items: center;
   flex: 1;
 
-  gap: 1rem;
-
   border-radius: .5rem;
 
   box-shadow: 0px -1px 0px var(--gray-300);
 
   padding: 4rem 1.5rem;
 }
-.cardLight {
-  box-shadow: 0px -1px 0px var(--gray-200);
+.card p:nth-of-type(1){
+  margin-top: 1rem;
 }
-.card > p{
+.card p{
   color: var(--gray-300);
 }
+.cardLight {
+  box-shadow: 0px -1px 0px var(--gray-200) !important;
+}
+
 @media (max-width: 400px){
   .card p {
     text-align: center;

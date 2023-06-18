@@ -53,7 +53,7 @@
   flex: 1;
 
   font-size: 1rem;
-  color: var(--gray-300);
+  color: var(--gray-200);
   background-color: var(--gray-400);
 
   border-radius: 0.5rem;
@@ -63,14 +63,13 @@
   flex: 1;
 
   font-size: 1rem;
-  color: var(--blue-dark);
+  color: var(--gray-400);
   background-color: var(--gray-200);
 
   border-radius: 0.5rem;
   padding: 1rem;
 }
 .inputText:focus {
-  color: var(--gray-200);
   box-shadow: 0px 0px 0px 2px var(--purple-dark);
 }
 .buttonAdd {
@@ -152,12 +151,14 @@
   border-radius: 0.5rem;
   padding: 0.5rem;
 
-  font-size: 0.85rem;
-
   cursor: pointer;
   transition: color 0.2s, background-color 0.2s;
   background-color: var(--danger);
-  color: var(--gray-100);
+  color: var(--white);
+}
+.removeAll span {
+  font-size: .85rem;
+  font-weight: 600;
 }
 .removeAllMobile {
   display: none;
@@ -207,11 +208,14 @@
   .removeAllMobile {
     display: block;
 
+    width: 100%;
+
     border-radius: 0.5rem;
-    padding: 0.8rem;
+    padding: 1rem;
     margin-top: 0.7rem;
 
     font-size: 0.85rem;
+    font-weight: 600;
 
     cursor: pointer;
     transition: color 0.2s, background-color 0.2s;

@@ -16,11 +16,10 @@
   --blue: #4EA8DE;
   --purple-dark: #5E60CE;
   --purple: #8284FA;
+  --blue-to-purple: linear-gradient(90deg, rgba(78,168,222,1) 0%, rgba(94,96,206,1) 100%);
 
   --danger: #ED4245;
   --danger-dark: #ed4245ad;
-
-  --blue-to-purple: linear-gradient(90deg, rgba(78,168,222,1) 0%, rgba(94,96,206,1) 100%);
 }
 * {
   box-sizing: border-box;
@@ -37,8 +36,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.light {
-  color-scheme: light;
+.MuiSwitch-root .MuiSwitch-track {
+  background-color: var(--gray-300);
+}
+.light.MuiCheckbox-root .Mui-checked {
+  color: var(--purple-dark) !important;
+}
+.light.MuiCheckbox-root {
+  color: var(--purple-dark) !important;
 }
 @media (max-width: 768px) {
   body {
